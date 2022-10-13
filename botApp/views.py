@@ -1,6 +1,10 @@
-from django.http import HttpResponse
 from django.shortcuts import render
+from rest_framework import serializers
+
+from botApp.models import Words
 
 
-def home(request):
-    return HttpResponse("Response to user")
+class WordSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Words
+        fields = ['pk', 'word', 'gender']
