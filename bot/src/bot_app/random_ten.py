@@ -32,7 +32,7 @@ async def button_click_callback(callback_query: types.CallbackQuery, state: FSMC
     await bot.answer_callback_query(callback_query.id)
     answer = callback_query.data
     async with state.proxy() as data:
-        if answer == data.get(answer):
+        if answer == data.get('answer'):
             response = await get_random()
             data['step'] += 1
             data['answer'] = response.get('gender')
